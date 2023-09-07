@@ -20,6 +20,7 @@ return {
       auto_session_suppress_dirs = { "~/", "~/Documents", "~/code", "~/Downloads", "/" },
       pre_save_cmds = {
         function()
+          neotree.execute({ action = "close" })
           overseer.save_task_bundle(
             get_cwd_as_name(),
             -- Passing nil will use config.opts.save_task_opts. You can call list_tasks() explicitly and
@@ -27,7 +28,6 @@ return {
             nil,
             { on_conflict = "overwrite" } -- Overwrite existing bundle, if any
           )
-          neotree.execute({ action = "close" })
         end,
       },
       -- Optionally get rid of all previous tasks when restoring a session
@@ -40,8 +40,8 @@ return {
       },
       post_restore_cmds = {
         function()
-          overseer.load_task_bundle(get_cwd_as_name(), { ignore_missing = true })
           neotree.execute({ action = "show", reveal = true })
+          overseer.load_task_bundle(get_cwd_as_name(), { ignore_missing = true })
         end,
       },
     })

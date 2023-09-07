@@ -462,6 +462,7 @@ local servers = {
       telemetry = { enable = false },
     },
   },
+  prettier = {},
 }
 
 -- Setup neovim lua configuration
