@@ -19,7 +19,7 @@ return {
         auto_trigger = true,
         debounce = 75,
         keymap = {
-          accept = "<C-CR>",
+          accept = "<CR>",
         }
       }
 

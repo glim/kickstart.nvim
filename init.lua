@@ -462,7 +462,7 @@ local servers = {
       telemetry = { enable = false },
     },
   },
-  prettier = {},
+  -- prettier = {},
 }
 
 -- Setup neovim lua configuration
@@ -511,7 +511,7 @@ cmp.setup {
     ['<C-Space>'] = cmp.mapping.complete {},
     ['<CR>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
+      select = false,
     },
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
