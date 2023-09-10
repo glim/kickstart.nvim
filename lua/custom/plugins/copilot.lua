@@ -1,10 +1,20 @@
 local cmp = require'cmp'
 
-cmp.setup({
-  mapping = cmp.mapping.preset.insert({
-    ['<CR>'] = cmp.mapping.confirm({ select = false }),
-  })
-})
+-- cmp.setup({
+--   mapping = cmp.mapping.preset.insert({
+--     ['<CR>'] = cmp.mapping.confirm({ select = false }),
+--   })
+-- })
+
+local function _tab_complete()
+  if cmp.visible() then
+    cmp.select_next_item()
+  else
+    require("copilot.suggestion").accept()
+  end
+end
+
+vim.keymap.set('i', '<Tab>', _tab_complete,{})
 
 return {
   "zbirenbaum/copilot.lua",
@@ -19,7 +29,7 @@ return {
         auto_trigger = true,
         debounce = 75,
         keymap = {
-          accept = "<CR>",
+          -- accept = "<CR>",
         }
       }
 

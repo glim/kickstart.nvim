@@ -462,6 +462,7 @@ local servers = {
       telemetry = { enable = false },
     },
   },
+  graphql = {},
   -- prettier = {},
 }
 
